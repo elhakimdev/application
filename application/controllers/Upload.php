@@ -21,7 +21,7 @@ class Upload extends CI_Controller
             $row[] = $item->Uploaded_By;
             $row[] = date('d F Y', strtotime($item->Created_At));
             $row[] = '<a href="' . site_url('data/edit_database/' . $item->ID) . '" class="btn btn-warning btn-flat btn-small"><i class="fas fa-pencil-alt"></i></a>
-            <a href="' . site_url('data/del_process') . '"class="btn btn-danger btn-flat btn-small"><i class="fas fa-trash-alt"></i></a>';
+            <a href="' . site_url('data/del_process/'). $item->ID . '"class="btn btn-danger btn-flat btn-small"><i class="fas fa-trash-alt"></i></a>';
 
             $data[] = $row;
         }
@@ -159,9 +159,9 @@ class Upload extends CI_Controller
             $this->load->model('Upload_m');
             $process = $this->Upload_m->insert_multiple($new);
             unlink(realpath('excel/' . $data_upload['file_name']));
-            $this->delduplicate();
-            // $this->del_empty_row();
+
             if (!$process) {
+                $this->delduplicate();
                 $this->session->set_flashdata('success', $count);
                 redirect('view/userview');
             } else {

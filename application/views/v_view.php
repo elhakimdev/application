@@ -31,6 +31,7 @@
             <div class="box">
                 <div class="box-body table-responsive">
                     <!--  -->
+
                     <table id="table3" class="table table-hover table-striped display nowrap" name="user_table">
                         <thead>
                             <tr>
@@ -53,7 +54,7 @@
                                                 "type": "POST",
                                             },
                                             "scrollY": 200,
-                                            "scroller": {
+                                            "scroller": {   
                                                 loadingIndicator: true,
                                             },
                                             "deferRender": true,
@@ -62,6 +63,15 @@
                                 </script>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Company Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Token</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
